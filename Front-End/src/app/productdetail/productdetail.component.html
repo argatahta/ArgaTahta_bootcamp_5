@@ -1,0 +1,137 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/header_bg.jpg" data-natural-width="1400" data-natural-height="470"
+  style="background: grey">
+  <div class="parallax-content-1">
+    <div class="animated fadeInDown">
+      <h1>Book detail </h1>
+      <p>Happy Shopping !</p>
+    </div>
+  </div>
+</section>
+<!-- End Section -->
+
+<div id="position">
+  <div class="container">
+    <ul>
+      <li>
+        <a routerLink="/">Home</a>
+      </li>
+      <li>
+        <a routerLink="/">Product list</a>
+      </li>
+      <li>Product Detail</li>
+    </ul>
+  </div>
+</div>
+<!-- End Position -->
+
+<div class="container margin_60">
+  <div class="row">
+    <div class="col-md-9">
+
+      <div class="product-details">
+
+        <div class="basic-details">
+          <div class="row">
+            <div class="image-column col-md-6 col-sm-6 col-xs-12">
+              <figure class="image-box">
+                <img src="{{obj.productPict}}" alt="">
+              </figure>
+            </div>
+            <div class="info-column col-md-6 col-sm-6 col-xs-12">
+              <div class="details-header">
+                <h2 style="text-transform: uppercase;">{{obj.name}}</h2>
+                <div class="item-price">
+                  Rp {{obj.price}}
+                </div>
+
+              </div>
+              <div class="text">
+                <p>
+                  {{obj.description}}
+                </p>
+              </div>
+              <div class="other-options">
+                <a class="btn_1" (click)="addToCart()" >Add To Cart </a>
+              </div>
+              <!--Item Meta-->
+              <ul class="item-meta">
+                <li>Categories: {{obj.category}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--End Basic Details-->
+
+        <div class="product-info-tabs">
+
+          <div class="prod-tabs" id="product-tabs">
+            <div class="tab-btns clearfix">
+              <a href="#prod-description" class="tab-btn active-btn">Product description</a>
+            </div>
+
+            <div class="tabs-container">
+              <div class="tab active-tab" id="prod-description">
+                <h3>Product Description</h3>
+                <div class="content">
+                  <p>
+                    {{obj.description}}
+                  </p>
+                </div>
+
+                <h3>Price</h3>
+                <div class="content">
+                  <p>
+                    {{obj.price}}
+                  </p>
+                </div>
+                <h3>Product Category</h3>
+                <div class="content">
+                  <p>
+                    {{obj.category}}
+                  </p>
+                </div>
+              </div>
+              <!--End Tab-->
+            </div>
+            <!--End tabs-container-->
+          </div>
+          <!--End prod-tabs-->
+        </div>
+        <!--End product-info-tabs-->
+
+      </div>
+      <!--End Product-details-->
+    </div>
+    <!--End Col-->
+
+    <div class="col-md-3">
+      <aside class="sidebar">
+        <div class="widget">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" style="margin-left:0;">
+                <i class="icon-search"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+        <!-- End Search -->
+        <hr>
+
+        <div class="widget" id="cat_shop">
+          <h4>Categories</h4>
+          <ul>
+            <li *ngFor="let e of productCategory">
+              <a [routerLink]="['/']" [queryParams]="{ category: e }">{{e}}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- End widget -->
+
+      </aside>
+    </div>
+    <!--Sidebar-->
+  </div>
+</div>
+<!-- End Container -->
